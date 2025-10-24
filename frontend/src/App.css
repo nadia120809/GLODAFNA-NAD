@@ -1,0 +1,155 @@
+/* src/App.css (Minimalis) */
+
+:root {
+  --bg-color: #55725d; /* Warna hijau tua ala game */
+  --track-color: #2e3e46; /* Abu gelap untuk rel */
+  --train-color: #f7e076; /* Kuning terang untuk kereta */
+  --text-color: #ffffff; /* Teks putih untuk kontras */
+  --station-border-color: #ffffff; /* Border putih untuk stasiun */
+  --ui-bg-color: rgba(0, 0, 0, 0.4); /* Background UI transparan */
+  --ui-text-color: white;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.game-overlay {
+  text-align: center;
+  background: var(--ui-bg-color);
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.game-overlay h1, .game-overlay p {
+  color: var(--ui-text-color);
+}
+
+.game-overlay button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3498db; /* Biru */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.game-overlay button:hover {
+  background-color: #2980b9;
+}
+
+.game-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-color); /* Latar belakang hijau */
+}
+
+.status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--ui-bg-color);
+  color: var(--ui-text-color);
+  z-index: 50;
+}
+
+.rule-display {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Container untuk SVG */
+.svg-container {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Styling Kereta (di dalam SVG) */
+.train-svg {
+  /* Ini akan diposisikan oleh transform SVG */
+  font-size: 20px;
+  font-weight: bold;
+  fill: var(--train-color); /* Warna tulisan kereta */
+  text-anchor: middle;
+  dominant-baseline: central;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5)); /* Efek shadow */
+}
+
+/* Styling Stasiun (di dalam SVG) */
+.station-svg {
+    stroke: var(--station-border-color);
+    stroke-width: 2px;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+    cursor: pointer; /* Menandakan bisa diklik */
+    transition: transform 0.1s ease-out;
+}
+
+.station-svg:hover {
+    transform: scale(1.05);
+}
+
+.station-svg.selected {
+  transform: scale(1.1);
+  stroke: yellow;
+  stroke-width: 4px;
+}
+
+.station-label {
+    fill: var(--text-color);
+    font-size: 14px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: central;
+}
