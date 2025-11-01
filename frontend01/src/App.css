@@ -1,0 +1,82 @@
+/* Container utama untuk menengahkan konten */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Ini adalah layout card utama kita.
+  Kita akan mengatur responsivitasnya di sini.
+*/
+.responsive-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Penting agar gambar tidak keluar dari radius */
+  width: 100%; /* Lebar default untuk mobile */
+}
+
+/* --- Media Queries untuk Responsif --- */
+
+/* Tablet (misal: lebar 768px ke atas) */
+@media (min-width: 768px) {
+  .responsive-card {
+    max-width: 600px; /* Batasi lebar di tablet */
+  }
+}
+
+/* Desktop (misal: lebar 1024px ke atas) */
+@media (min-width: 1024px) {
+  .responsive-card {
+    max-width: 800px; /* Batasi lebar di desktop */
+    display: flex; /* Ubah layout jadi horizontal di desktop */
+  }
+}
+
+/* Gambar di dalam card */
+.card-image-wrapper {
+  width: 100%; /* Default untuk mobile & tablet */
+  line-height: 0; /* Menghilangkan spasi aneh di bawah gambar */
+}
+
+/* Di Desktop, buat gambar mengisi 50% lebar card */
+@media (min-width: 1024px) {
+  .card-image-wrapper {
+    width: 50%;
+    flex-shrink: 0; /* Mencegah gambar menyusut */
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* Jaga rasio gambar */
+  object-fit: cover; /* Pastikan gambar mengisi area tanpa distorsi */
+}
+
+/* Konten teks di dalam card */
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Di Desktop, buat konten mengisi 50% sisanya */
+@media (min-width: 1024px) {
+  .card-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.card-content h2 {
+  margin-bottom: 0.75rem;
+  color: #1c1c1e;
+}
+
+.card-content p {
+  color: #636366;
+  line-height: 1.6;
+}

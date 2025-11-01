@@ -1,0 +1,14 @@
+diff --git a/node_modules/react-bits/es/injection/injectors/inject-react-native-web.js b/node_modules/react-bits/es/injection/injectors/inject-react-native-web.js
+index 7507684..367089f 100644
+--- a/node_modules/react-bits/es/injection/injectors/inject-react-native-web.js
++++ b/node_modules/react-bits/es/injection/injectors/inject-react-native-web.js
+@@ -9,7 +9,8 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
+ import { ReactBits } from '../../ReactBits';
+ import { Animated, Dimensions, Easing, Image, Platform, StyleSheet, Text, Touchable, View, } from 'react-native-web';
+ import { createTouchable } from '../../modules/Touchable';
+-import StyleRegistry from 'react-native-web/dist/apis/StyleSheet/registry';
++// import StyleRegistry from 'react-native-web/dist/apis/StyleSheet/registry';
++const StyleRegistry = {}; // dummy object supaya tidak error
+ var emptyObject = {};
+ var resolve = function (style) {
+     return StyleRegistry.resolve(style) || emptyObject;

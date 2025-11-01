@@ -1,0 +1,27 @@
+.blur-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.blur-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+  .blur-image {
+    max-width: 90%;
+  }
+}
+
+/* Responsif untuk handphone */
+@media (max-width: 480px) {
+  .blur-image {
+    max-width: 100%;
+  }
+}
